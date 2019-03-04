@@ -10,20 +10,24 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
 </head>
 <body>
+    <!--Add cool fonts for all text-->
+    <h1 class="text-center">Giphy Warriors!</h1>
+    <form class="text-center">
+        <label for="topic-input">Add a warrior to the roster!</label>
+        <br>
+        <input class="mb-3" type="text" id="topic-input"></input>
+        <br>
+        <!--NEED TO ADD EVENT PREVENT DEFAULT so page does not refresh-->
+        <input id="add-topic" class="btn btn-danger mb-3" type="submit" value="Recruit!">
+    </form>
     <!--Buttons to click will appear here-->
-    <div id="buttons">
-
+    <div class="text-center" id="buttons">
     </div>
     <!--Need an aside for a form/submit field-->
-    <aside>
-        <form>
-            <input></input>
-        </form>
-    </aside>
+
 
     <!--Need a div or section to append gifs-->
     <div id="images">
-
     </div>
     <!--Need a <p> tag or something for ratings, which will probably best appended in jquery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
