@@ -96,8 +96,15 @@ $(document).on("click", ".topic", function() {
 // use id "#add-topic" and "topic-input"
     $("#add-topic").on("click", function(event) {
         event.preventDefault();
-
-        var newTopic = $("#topic-input")
+        // new variable which grabs input from user
+        var newTopic = $("#topic-input").val().trim();
+        // I cannot explain this line of code
+        // It comes from our homework solutions, but what is happening here?
+        if (newTopic.length > 0 && topics.indexOf(newTopic) < 0) {
+            topics.push(newTopic);
+        }
+        // call the function to render new button
+        renderButtons();
     })
 
 // I need the input to be appended to a new button in the row of buttons
