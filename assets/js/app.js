@@ -1,6 +1,7 @@
 // GIPHY WARRIORS!
 // Document ready goes here
-// CHANGE ALL VARS TO LETS/CONST
+// Converted all "var" to "let"
+// Having trouble determining where "const" is userful here; need to isolate and play until I understand
 $(document).ready(function() {
 // STEP ONE: I need an array that stores strings of "things I like"
     let topics = [
@@ -16,8 +17,8 @@ $(document).ready(function() {
         $("#buttons").empty();
         // I need to append the array to buttons
         // I need a for loop that cycles through my array
-    for (var i = 0; i < topics.length; i++) {
-        var a = $("<button>");
+    for (let i = 0; i < topics.length; i++) {
+        let a = $("<button>");
         // added .topic class for later functionality 
         // I feel like all of this could be optimized
         a.attr("type", "button");
@@ -36,12 +37,13 @@ $(document).on("click", ".topic", function() {
     
     // this is the API URL, stored in a variable, which we'll use to call this API later
     // must be SPECIFICALLY catered to your needs
-    var topic =  $(this).attr("data-topic");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=e5k3DBOsJmADSoZFSu9EOG0ML89Tz2m3&q=" + topic + "&limit=10&offset=4&lang=en";
+    let topic =  $(this).attr("data-topic");
+    //added an offset limit to play with concept; currently set to "4" for no particular reason
+    let queryURL = "https://api.giphy.com/v1/gifs/search?api_key=e5k3DBOsJmADSoZFSu9EOG0ML89Tz2m3&q=" + topic + "&limit=10&offset=4&lang=en";
     console.log(queryURL)
     
 
-    // this is the ajax function that is getting data from the source
+    // this is the ajax function that is getting data from the server
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -49,14 +51,14 @@ $(document).on("click", ".topic", function() {
         //this returns the API promise
         .then(function(response) {
             // a variable shortcut that I will jam in a for loop
-            var results = response.data; 
+            let results = response.data; 
             
-            for (var i = 0; i < results.length; i++) {
+            for (let i = 0; i < results.length; i++) {
                 //console.log(results[i].images.fixed_height.url)
             
                 
-                var gifDiv = $("<div>").attr("id", "gifs");
-                var topicImage = $("<img>").attr("src", results[i].images.fixed_height_still.url);
+                let gifDiv = $("<div>").attr("id", "gifs");
+                let topicImage = $("<img>").attr("src", results[i].images.fixed_height_still.url);
                 topicImage.attr("data-still", results[i].images.fixed_height_still.url);
                 topicImage.attr("data-animate", results[i].images.fixed_height.url);
                 topicImage.attr("data-state", "still");
@@ -65,7 +67,7 @@ $(document).on("click", ".topic", function() {
 
                 $("#images").prepend(gifDiv);
                 gifDiv.append(topicImage);
-                var rating = results[i].rating;
+                let rating = results[i].rating;
                     pRating = $("<p>").text("Rated: " + rating);
                     console.log(rating);
                 //need to add ratings
@@ -77,11 +79,10 @@ $(document).on("click", ".topic", function() {
         });
     //ends the on-click event
     });
-// I need the gifs to REPLACE each other as the button is clicked
 
 // STEP THREE: I need the gifs to respond to clicks, in that they animate or still
     $(document).on("click", ".gif", function() {
-        var state = $(this).attr("data-state");
+        let state = $(this).attr("data-state");
         if (state === "still") {
             $(this).attr("src", $(this).attr("data-animate"));
             $(this).attr("data-state", "animate");
@@ -97,7 +98,7 @@ $(document).on("click", ".topic", function() {
     $("#add-topic").on("click", function(event) {
         event.preventDefault();
         // new variable which grabs input from user
-        var newTopic = $("#topic-input").val().trim();
+        let newTopic = $("#topic-input").val().trim();
         // I cannot explain this line of code
         // It comes from our homework solutions, but what is happening here?
         if (newTopic.length > 0 && topics.indexOf(newTopic) < 0) {

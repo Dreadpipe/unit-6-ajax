@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
 </head>
 <body>
+    <!--Add background color or picture-->
     <!--Add cool fonts for all text-->
     <h1 class="text-center">Giphy Warriors!</h1>
     <form class="text-center">
@@ -17,20 +18,21 @@
         <br>
         <input class="mb-3" type="text" id="topic-input"></input>
         <br>
-        <!--NEED TO ADD EVENT PREVENT DEFAULT so page does not refresh-->
+        <!--Added event prevent default to eliminate page refresh-->
         <input id="add-topic" class="btn btn-danger mb-3" type="submit" value="Recruit!">
     </form>
     <!--Buttons to click will appear here-->
+    <!--Add CSS to buttons to give cooler thematic styling-->
     
     <div class="text-center" id="buttons">
     </div>
-    <!--Need an aside for a form/submit field-->
-
-
     <!--Need a div or section to append gifs-->
     <!--Bootstrapify for neater rows-->
-    <div class="container mt-3">
+    <!--This class centers when used in container: d-flex justify-content-center-->
+    <div class="container mt-3" id="images">
         <div class="row">
+            <!--Remove this div, apply center to container and gifs will append inline-->
+            <!--Add CSS after fixing center to give even spacing between gifs-->
             <div id="images">
             </div>
         </div>

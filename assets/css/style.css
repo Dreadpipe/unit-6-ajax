@@ -1,4 +1,6 @@
 /* Styling for buttons here because they don't exist until page loads*/
+/*Can use bootstrap, but don't need to atm*/
 .btn {
     margin: 3px 
 }
+
